@@ -42,9 +42,7 @@ function App() {
                 <div className="container-box-right">
                     <p>Date: {new Date().toLocaleDateString()}</p>
                 </div>
-                <div className="container-box-right">
-                    <p>Additional Info</p>
-                </div>
+               
             </div>
         </div>
     );
