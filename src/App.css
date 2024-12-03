@@ -1,4 +1,3 @@
-/* App.css */
 body {
   margin: 0;
   padding: 0;
@@ -12,7 +11,7 @@ body {
 }
 
 .left-section{
-  width: 10%; /* Reduced width */
+  width: 10%; 
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -20,7 +19,7 @@ body {
 }
 
 .right-section {
-  width: 10%; /* Reduced width */
+  width: 8%; 
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -29,20 +28,17 @@ body {
 
 .center-section {
   flex: 1;
-
   overflow-y: auto;
-  overflow-x: hidden; /* Hide horizontal scrollbar */
-  scroll-behavior: smooth; /* Smooth scrolling */
+  overflow-x: hidden; 
+  scroll-behavior: smooth; 
 }
 
-/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
 .center-section::-webkit-scrollbar {
-  display: none; /* Hides the scrollbar */
+  display: none; 
 }
 
-/* Hide scrollbar for Firefox */
 .center-section {
-  scrollbar-width: none; /* Hides the scrollbar */
+  scrollbar-width: none; 
 }
 
 .button {
@@ -89,7 +85,7 @@ body {
 }
 
 .nav-item:hover {
-  color: #f3f4f6; /* Change to a lighter color on hover */
+  color: #f3f4f6; 
 }
 
 .container-box-center {
@@ -97,13 +93,79 @@ body {
   margin: 10px 0;
   padding: 20px;
   border-radius: 10px;
-  height: 90vh; /* Adjust height to fill space */
+  height: 90vh; 
 }
-.container-box-right{
-  background-color: rgba(107, 114, 128, 0.5);
-  margin: 10px 0;
+
+.transparent-dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   padding: 20px;
+  overflow-y: auto;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between rows and boxes */
+  justify-content: center; /* Center the boxes horizontally */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-news-box {
+  background-color: white;
   border-radius: 10px;
-  height: 200vh; /* Adjust height to fill space */
-  color: #f3f4f6;
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  width: 30%; /* Set box width to approximately one-third of the row */
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.dashboard-news-box:hover {
+  transform: scale(1.05);
+}
+
+.news-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Cross sign button for closing the dashboard */
+.close-dashboard-cross {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.close-dashboard-cross:hover {
+  transform: scale(1.1);
+}
+
+.close-dashboard {
+  background-color: rgba(255, 69, 0, 1);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
 }
