@@ -6,6 +6,7 @@ import './Bulletin.css';
 
 function Bulletin() {
     const [news, setNews] = useState([]); // State for news articles
+    const [filteredNews, setFilteredNews] = useState([]); // State for filtered news articles
     const [selectedNews, setSelectedNews] = useState(null); // State for selected news modal
     const { setRecentNews } = useContext(NewsContext); // Access the context
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ function Bulletin() {
                 );
                 const articles = response.data.articles;
                 setNews(articles);
+                setFilteredNews(articles); // Initialize filtered news
                 if (articles.length > 0) {
                     setRecentNews(articles[0].title); // Save the most recent news headline
                 }
@@ -35,6 +37,23 @@ function Bulletin() {
 
     const closeModal = () => {
         setSelectedNews(null);
+    };
+
+    const handleSearch = (event) => {
+        const searchTerm = event.target.value.toLowerCase();
+        if (!news || news.length === 0) {
+            return; // Handle case where news is undefined or empty
+        }
+        if (!searchTerm) {
+            setFilteredNews(news); // Reset if search term is empty
+        } else {
+            const results = news.filter(article =>
+                article.title?.toLowerCase().includes(searchTerm) ||
+                article.description?.toLowerCase().includes(searchTerm) ||
+                article.source?.name?.toLowerCase().includes(searchTerm)
+            );
+            setFilteredNews(results);
+        }
     };
 
     const formatDate = (dateString) => {
@@ -55,8 +74,16 @@ function Bulletin() {
             >
                 &times;
             </button>
+            <div className="search-bar-container">
+                <input 
+                    type="text" 
+                    placeholder="Search news..." 
+                    className="search-bar"
+                    onChange={handleSearch}
+                />
+            </div>
             <div className="dashboard-content">
-                {news.map((article, index) => (
+                {filteredNews.map((article, index) => (
                     <div key={index} className="dashboard-news-box">
                         {article.urlToImage && (
                             <img
@@ -112,4 +139,4 @@ function Bulletin() {
     );
 }
 
-export default Bulletin;
+export default Bulletin; 
