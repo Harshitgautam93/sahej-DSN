@@ -571,6 +571,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Home handleLocationFetched={handleLocationFetched} userLocation={userLocation} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
