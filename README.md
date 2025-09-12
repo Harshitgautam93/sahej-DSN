@@ -1,4 +1,4 @@
-# Disaster Management Platform
+# Disaster Management Platform - https://sahej-dsn.vercel.app/
 
 A comprehensive, AI-powered disaster management solution designed to enhance emergency preparedness, response, and recovery through real-time data integration and community collaboration.
 
